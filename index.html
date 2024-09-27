@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="icon" type="image/x-icon" href="/tor/img/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>ToroToro</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="navpanel">
+        <div class="navpanel__flex">
+          <div class="flex__hidden active">
+            <div class="category">
+              <a href="#cat1" class="category__link cat1">Роллы</a>
+              <a href="#cat2" class="category__link cat2">Темпура</a>
+              <a href="#cat3" class="category__link cat3">Запеченые роллы</a>
+              <a href="#cat4" class="category__link cat4">Торо-доги</a>
+              <a href="#cat6" class="category__link cat6">Супы</a>
+              <a href="#cat7" class="category__link cat7">Мидии</a>
+              <a href="#cat8" class="category__link cat8">Сеты</a>
+              <a href="#cat9" class="category__link cat9">Напитки</a>
+              <a href="#cat10" class="category__link cat10">Добавки</a>
+            </div>
+            <div class="menu">
+              <input type="checkbox" id="burger-checkbox" class="burger-checkbox">
+              <label for="burger-checkbox" class="burger"></label>
+              <ul class="menu-list">
+                  <li><a href="#cat1" class="menu-item">Роллы</a><li>
+                  <li><a href="#cat2" class="menu-item">Темпура</a><li>
+                  <li><a href="#cat3" class="menu-item">Запеченые роллы</a><li>
+                  <li><a href="#cat4" class="menu-item">Торо-доги</a><li>
+                  <li><a href="#cat6" class="menu-item">Супы</a><li>
+                  <li><a href="#cat7" class="menu-item">Мидии</a><li>
+                  <li><a href="#cat8" class="menu-item">Сеты</a><li>
+                  <li><a href="#cat9" class="menu-item">Напитки</a><li>
+                  <li><a href="#cat10" class="menu-item">Добавки</a><li>
+              </ul>
+          </div>
+          </div>
+          <div class="flex__left disable">
+            <div class="left__contacts">
+              <div class="contacts__text">
+                <div class="contacts">
+                  <a class="contacts__navbar" href="tel:+79095427774"
+                    >КОНТАКТЫ</a
+                  >
+                </div>
+                <div class="city">
+                  <img class="geolock" src="img/geo.png" alt="geo" srcset="" />
+                  <a
+                    class="contacts__navbar"
+                    target="_blank"
+                    href="https://maps.app.goo.gl/Jvub3HZUWTBL8NVt7"
+                  >
+                    Северск</a
+                  >
+                </div>
+              </div>
+              <div class="search__container">
+                <div class="search__flex">
+                  <div class="search__flexbox">
+                    <input
+                      type="text"
+                      id="searchInput"
+                      placeholder="Поиск"
+                      class="search"
+                      oninput="searchProducts()"
+                    />
+                    <img class="lupa" src="img/lupa.png" alt="" srcset="" />
+                  </div>
+                  <button class="close__search" style="display: none">X</button>
+                </div>
+                <div id="searchResultsContainer" style="display: none">
+                  <div id="searchResults"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex__middle disable">
+            <div class="logos">
+              <img loading="lazy" srcset="img/logo.png" class="logo1" />
+              <img loading="lazy" srcset="img/logo_min.png" class="logo2" />
+            </div>
+          </div>
+          <div class="flex__right">
+            <div class="work__time">
+              <div class="time__text">Режим работы</div>
+              <div class="work__days">
+                пн-чт, вс с 14:00 до 22:30
+                <br />
+                пт-сб с 14:00 до 23:30
+              </div>
+            </div>
+
+            <div class="cart">
+              <button class="offer" id="openCartBtn">Открыть корзину</button>
+              <p class="summory"></p>
+            </div>
+            <div class="cart__container" id="cartContainer">
+              <div class="shopping_cart">
+                <div class="close-btn">X</div>
+                <form class="form" method="post" action="./send.php" id="zakaz">
+                  <div class="form__left">
+                    <div class="inputs__left">
+                      <input
+                        required
+                        name="name"
+                        class="input-form input-name"
+                        type="text"
+                        placeholder="Ваше имя"
+                      />
+                      <input
+                        required
+                        name="tel"
+                        class="input-form input-tel"
+                        type="tel"
+                        placeholder="Введите телефон"
+                      />
+                    </div>
+                    <div class="delivery-block">
+                      <h3>Способ доставки</h3>
+                      <div class="checkbox">
+                        <input
+                          type="checkbox"
+                          class="input-form checkbox"
+                          name="samovuvoz"
+                          id="samovuvoz"
+                        />
+                        <label class="checkbox__label" for="samovuvoz"
+                          >Самовывоз г.Северск ул.Коммунистический 49б</label
+                        >
+                      </div>
+                      <div class="checkbox">
+                        <input
+                          type="checkbox"
+                          class="input-form checkbox"
+                          name="dostavka"
+                          id="dostavka"
+                        />
+                        <label class="checkbox__label" for="dostavka"
+                          >Доставка</label
+                        >
+                      </div>
+                    </div>
+
+                    <div class="persons__block">
+                      <input
+                        required
+                        name="home"
+                        class="input-form input-address"
+                        type="text"
+                        placeholder="Введите улицу,дом,подъезд, квартира *"
+                      />
+                      <input
+                        class="input-form"
+                        required
+                        name="count_pers"
+                        placeholder="Количество персон"
+                        type="number"
+                      />
+                    </div>
+                  </div>
+                  <div class="form__right">
+                    <div class="delivery-days">
+                      <input
+                        type="text"
+                        class="input-form"
+                        list="browsers"
+                        id="my-browser"
+                        name="my-browser"
+                        placeholder="Способ оплаты"
+                      />
+                      <datalist id="browsers">
+                        <option value="Наличными"></option>
+                        <option value="Картой"></option>
+                      </datalist>
+                      <input
+                        class="input-form promo-code-input"
+                        name="promokod"
+                        placeholder="Промокод"
+                        type="text"
+                      />
+                      <button class="promo-code-btn">Применить</button>
+                    </div>
+                    <input
+                      type="text"
+                      class="input-form comment"
+                      placeholder="Коментарий к заказу"
+                    />
+                  </div>
+
+                  <button class="btn-order">Заказать</button>
+                  <p class="dostavka">
+                    Минимальная сумма заказа на бесплатную доставку 800р
+                  </p>
+                </form>
+              </div>
+              <div class="cart-right">
+                <div class="predupred">
+                  <p>
+                    Обратите внимание, что соусы и добавки продаются отдельно
+                  </p>
+                  <div class="dops__btn">
+                    <a href="#cat10" class="pred-btn">Перейти к добавкам</a>
+                  </div>
+                </div>
+                <h2 class="card-title">Корзина</h2>
+
+                <hr class="card-hr" />
+                <div class="input-data" type="hidden"
+                  name="product"
+                  value=""
+                ></div>
+                <input
+                  class="input-price"
+                  type="hidden"
+                  name="price"
+                  value=""
+                />
+                <input class="input-name" type="hidden" name="name" value="" />
+                <input
+                  class="input-order"
+                  type="hidden"
+                  name="order"
+                  value=""
+                />
+                <input type="hidden" name="act" value="order">
+                <div class="summa">
+                  Сумма заказа:
+                  <p class="summo"></p>
+                </div>
+                <div class="of__btns">
+                  <button class="closeCart" id="closeCartBtn">
+                    Закрыть корзину
+                  </button>
+                  <button
+                    id="submitCartButton"
+                    type="submit"
+                    class="get__offer"
+                  >
+                    Оформить заказ
+                  </button>
+                </div>
+                <ul id="cartItems"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="slider__position">
+        <div class="slider">
+          <div class="slides">
+            <div class="slide">
+              <img
+                class="slide__img mobile_akcii"
+                src="img/akcii/ak1.png"
+                alt=""
+                srcset=""
+              />
+            </div>
+            <div class="slide">
+              <img
+                class="slide__img"
+                src="img/akcii/ak2.png"
+                alt=""
+                srcset=""
+              />
+            </div>
+            <div class="slide">
+              <img
+                class="slide__img"
+                src="img/akcii/ak3.png"
+                alt=""
+                srcset=""
+              />
+            </div>
+          </div>
+          <div class="nav-buttons">
+            <button class="nav-button" onclick="goToSlide(0)">
+              <li class="sliderbtns"></li>
+            </button>
+            <button class="nav-button" onclick="goToSlide(1)">
+              <li class="sliderbtns"></li>
+            </button>
+            <button class="nav-button" onclick="goToSlide(2)">
+              <li class="sliderbtns"></li>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section__list cat1" id="cat1">
+      <div class="container">
+        <div class="categorys">
+          <div class="cat__name">
+            <p class="bold__catname">Роллы</p>
+            <hr class="category__hr" />
+          </div>
+          <div class="cat1__flex">
+            <div class="cat1__product" data-product-id="1">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/kentuki.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Кентукки</div>
+                  <div class="desc__text">
+                    Состав: нори, курица, сливочный сыр, помидор, форменный соус
+                    «Сливочный», соус «Унаги», зелёный лук. <br />
+                    <p class="BGU">КБЖУ: 433.9 / 19.59 / 22.21 / 37.91</p>
+                    <p class="cost__with__weight">325 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 2 id -->
+            <div class="cat1__product" data-product-id="3">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/filadelfia.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Филадельфия</div>
+                  <div class="desc__text">
+                    Состав: нори, лосось, сливочный сыр, огурец. <br />
+                    <p class="BGU">КБЖУ: 359.34 / 8.16 / 14.50 / 37.06</p>
+                    <p class="cost__with__weight">450 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="4">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/volna.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Волна</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, тигровая креветка, огурец,
+                    фирменный соус «Сливочный», соус «Унаги», икра масаго.
+                    <br />
+                    <p class="BGU">КБЖУ: 360.3 / 15.93 / 15.80 / 37.56.</p>
+                    <p class="cost__with__weight">380 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="5">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/lavastigrovkrevetks.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Лава с тигровой креветной</div>
+                  <div class="desc__text">
+                    Состав: нори, тигровая креветка, сливочный сыр, огурец, соус
+                    лава.
+
+                    <br />
+
+                    <p class="cost__with__weight">320 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="6">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/californiya.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Калифорния</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, тигровая креветка, авокадо,
+                    огурец, фирменный соус «Сливочный», икра масаго
+                    <br />
+                    <p class="BGU">КБЖУ: 263.5 / 9.22 / 8.13 / 37</p>
+                    <p class="cost__with__weight">320 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="7">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/canada.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Канада</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, копчёный угорь, лосось, огурец,
+                    соус «Унаги», кунжут.
+                    <br />
+                    <p class="BGU">КБЖУ: 384.1 / 19.62 / 16.49 / 38.08</p>
+                    <p class="cost__with__weight">460 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="8">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/geysha.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Гейша</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, тигровая креветка, огурец.<br />
+                    <p class="BGU">КБЖУ: 242.4 / 9.42 / 6.26 / 36.03</p>
+                    <p class="cost__with__weight">280 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="9">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/dakon.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Дракон</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, копчёный угорь, огурец, соус
+                    «Унаги», кунжут. <br />
+                    <p class="BGU">КБЖУ: 449.49 / 16.68 / 24.60 / 39.58</p>
+                    <p class="cost__with__weight">420 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="10">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/alaska.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Аляска</div>
+                  <div class="desc__text">
+                    Состав: нори, лослсь, сливочный сыр, огурец, икра масаго.
+                    <br />
+                    <p class="BGU">КБЖУ: 310.9 / 11.78 / 12.60 / 36.51</p>
+                    <p class="cost__with__weight">290 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="11">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/mexicaslosos.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Маки лосось</div>
+                  <div class="desc__text">
+                    Состав: нори, лосось. <br />
+                    <p class="BGU">КБЖУ: 225.1 / 9.98 / 4.60 / 34.86</p>
+                    <p class="cost__with__weight">240 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="12">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/kynsay.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Кунсэй</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, лосось, помидор, кунжут,
+                    фирменный соус «КимЧи».<br />
+                    <p class="BGU">КБЖУ: 393.35 / 15.59 / 18.05 / 40.53</p>
+                    <p class="cost__with__weight">320 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="13">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/makiavacado.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Маки авокадо</div>
+                  <div class="desc__text">
+                    Состав: нори, авокадо. <br />
+
+                    <p class="cost__with__weight">230 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="14">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/makicrevetka.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Маки креветка</div>
+                  <div class="desc__text">
+                    Состав: нори, тигровая креветка, огурец. <br />
+                    <p class="BGU">КБЖУ: 195.38 / 8.85 / 1.27 / 36.10</p>
+                    <p class="cost__with__weight">240 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="15">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/lotos.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Лотос</div>
+                  <div class="desc__text">
+                    Состав: нори, лосось, сливочный сыр. <br />
+
+                    <p class="cost__with__weight">260 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="16">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/chiken.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Чикен</div>
+                  <div class="desc__text">
+                    Состав: нори, курица, сливочный сыр, лист салата, фирменный
+                    соус «Сливочный», соус «Унаги», кунжут.
+                    <br />
+                    <p class="BGU">КБЖУ: 503.45 / 16.12 / 30.35 / 40.65</p>
+                    <p class="cost__with__weight">280 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="17">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/lavaskrabom.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Лава с крабом</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, сурими, огурец, соус лава.
+
+                    <br />
+
+                    <p class="cost__with__weight">275 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="18">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/lavaslosos.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Лава с лососем</div>
+                  <div class="desc__text">
+                    Состав: нори, лосось, сливочный сыр, огурец, соус лава.
+                    <br />
+
+                    <p class="cost__with__weight">320 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="19">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/tartar.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Тар-Тар</div>
+                  <div class="desc__text">
+                    Состав: нори, лосось, сливочный сыр, фирменный соус «КимЧи»,
+                    икра масаго. <br />
+
+                    <p class="cost__with__weight">340 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="20">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/fudziama.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Фудзияма</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, тигровая креветка, огурец,
+                    зелёный лук, фирменный соус «Кунжутный».<br />
+
+                    <p class="cost__with__weight">340 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="21">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/tommi.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Томми</div>
+                  <div class="desc__text">
+                    Состав: тигровая креветка, сурими, сливочный сыр, нори,
+                    фирменный соус «Том-Ям».
+                    <br />
+
+                    <p class="cost__with__weight">380 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="22">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/yona.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Йона</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, огурец, сурими, соус «Унаги»,
+                    икра масаго. <br />
+
+                    <p class="cost__with__weight">300 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="23">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/mexicaslosos.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Мексика с лососем</div>
+                  <div class="desc__text">
+                    Состав: лосось, лепешка, сливочный сыр, зелёный лук, салат
+                    <br />
+
+                    <p class="cost__with__weight">280 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="24">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/mexicaskuric.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Мексика с курицей</div>
+                  <div class="desc__text">
+                    Состав: курица, лепешка, сливочный сыр, помидор, салат
+                    <br />
+
+                    <p class="cost__with__weight">260 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="25">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/rolls/mexicaskrevet.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Мексика с креветкой</div>
+                  <div class="desc__text">
+                    Состав: Тигровые креветки, лепешка, сливочный сыр, огурец,
+                    салат
+
+                    <br />
+
+                    <p class="cost__with__weight">280 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__list" id="cat2">
+      <div class="container">
+        <div class="categorys">
+          <div class="cat__name">
+            <p class="bold__catname">Темпура</p>
+            <hr class="category__hr" />
+          </div>
+
+          <div class="cat1__flex">
+            <div class="cat1__product" data-product-id="26">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="./img/tempura/sakura.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Сакура</div>
+                  <div class="desc__text">
+                    Состав: нори, темпура, сливочный сыр, тигровая креветка,
+                    фирменный соус «КимЧи», зелёный лук. <br />
+
+                    <p class="cost__with__weight">330 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="27">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="./img/tempura/makuta.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Макута</div>
+                  <div class="desc__text">
+                    Состав: нори, темпура, тигровая креветка, Сливочный сыр,
+                    огурец, фирменный соус «Том-Ям». <br />
+
+                    <p class="cost__with__weight">360 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="28">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="./img/tempura/vatacumi.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Ватацуми</div>
+                  <div class="desc__text">
+                    Состав: нори, темпура, Сливочный сыр, лосось, сурими,
+                    огурец, фирменный соус «КимЧи». <br />
+
+                    <p class="cost__with__weight">360 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="29">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="./img/tempura/ebi__tempura.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Эби темпура</div>
+                  <div class="desc__text">
+                    Состав: нори, темпура, тигровые креветки, сливочный сыр,
+                    огурец, соус «Унаги». <br />
+
+                    <p class="cost__with__weight">320 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="30">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="./img/tempura/chiken__tempura.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Чикен темпура</div>
+                  <div class="desc__text">
+                    Состав: нори, темпура, курица, сливочный сыр, помидор, соус
+                    «Унаги»<br />
+
+                    <p class="cost__with__weight">280 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="31">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="./img/tempura/ame__tempura.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Амэ темпура</div>
+                  <div class="desc__text">
+                    Состав: нори, темпура, сливочный сыр, лосось, огурец,
+                    фирменный соус «КимЧи», соус «Унаги».
+
+                    <br />
+
+                    <p class="cost__with__weight">300 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="32">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="./img/tempura/lavatemplosos.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Лава темпура с лососем</div>
+                  <div class="desc__text">
+                    Состав: нори, темпура, сливочный сыр, лосось, огурец, соус
+                    лава. <br />
+
+                    <p class="cost__with__weight">330 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="33">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="./img/tempura/bankock.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Банкок</div>
+                  <div class="desc__text">
+                    Состав: нори, темпура, сливочный сыр, тигровые креветки,
+                    лосось, огурец.
+                    <br />
+
+                    <p class="cost__with__weight">340 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="34">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="./img/tempura/lavatempkrevetka.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Лава темпура с креветкой</div>
+                  <div class="desc__text">
+                    Состав: нори, темпура, Сливочный сыр, тигровая креветка,
+                    огурец, соус лава. <br />
+
+                    <p class="cost__with__weight">330 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__list" id="cat3">
+      <div class="container">
+        <div class="categorys">
+          <div class="cat__name">
+            <p class="bold__catname">Запеченые роллы</p>
+            <hr class="category__hr" />
+          </div>
+          <div class="cat1__flex">
+            <div class="cat1__product" data-product-id="35">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/zapech/opalenui.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Опаленный</div>
+                  <div class="desc__text">
+                    нори, лосось, сливочный сыр, фирменный соус "Сливочный",
+                    соус "Унаги". <br />
+                    <p class="BGU">КБЖУ: 451.24 / 17.78 / 24.77 / 37.93</p>
+                    <p class="cost__with__weight">345 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cat1__product" data-product-id="36">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/sets/zapechenuy.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Опаленный</div>
+                  <div class="desc__text">
+                    Роллы: запеченный с курицей, запеченный с креветкой,
+                    запеченный с мидией, запеченный с лососем.
+                    <p class="cost__with__weight">1050 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cat1__product" data-product-id="37">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/zapech/jizys.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Чизус</div>
+                  <div class="desc__text">
+                    Состав: нори, cыр чеддер "плавленный" , сливочный сыр,
+                    тигровая креветка, соус "Унаги", икра масаго.
+                    <p class="cost__with__weight">285 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cat1__product" data-product-id="38">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/zapech/agapovka.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Агаповка</div>
+                  <div class="desc__text">
+                    Состав: нори, курица, сливочный сыр, помидор, форменный соус
+                    «Сливочный», соус «Унаги», зелёный лук.
+                    <p class="BGU">КБЖУ: 433.9 / 19.59 / 22.21 / 37.91</p>
+                    <p class="cost__with__weight">325 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cat1__product" data-product-id="39">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/zapech/zapechenskuricey.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Запеченный с курицей</div>
+                  <div class="desc__text">
+                    Состав: нори, курица, Сливочный сыр, огурец, фирменный соус
+                    «Сливочный», кунжут.
+                    <p class="BGU">КБЖУ: 571.63 / 18.78 / 34.21 / 41.9</p>
+                    <p class="cost__with__weight">290 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cat1__product" data-product-id="40">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/zapech/torolightlosos.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Торо лайт с лососем</div>
+                  <div class="desc__text">
+                    Состав: нори, лосось, сливочный сыр, фирменный соус «КимЧи»,
+                    соус «Унаги»
+                    <p class="BGU">КБЖУ: 406.6 / 19.87 / 33.3 / 5.47</p>
+                    <p class="cost__with__weight">380 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cat1__product" data-product-id="41">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/zapech/hotcrab.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Hot краб</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, сурими, фирменный соус «КимЧи»,
+                    фирменный соус «Сливочный», икра масаго.
+
+                    <p class="BGU">КБЖУ: 406.6 / 19.87 / 33.3 / 5.47</p>
+                    <p class="cost__with__weight">270 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cat1__product" data-product-id="42">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/zapech/zapechsmidiey.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Запеченный с мидией</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, мидии, фирменный соус
+                    «Сливочный», соус «Унаги», икра масаго.
+                    <p class="BGU">КБЖУ: 539.2 / 12.85 / 37.15 / 34.94</p>
+                    <p class="cost__with__weight">290 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cat1__product" data-product-id="43">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/zapech/zapechenskrevet.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Запеченный с креветкой</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, тигровые креветки, фирменный
+                    соус «Сливочный», икра масаго, соус «Унаги»
+                    <p class="BGU">КБЖУ: 521.93 / 17.39 / 30.76 / 41.79</p>
+                    <p class="cost__with__weight">330 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cat1__product" data-product-id="44">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/zapech/torolightskuric.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Торо лайт с курицей</div>
+                  <div class="desc__text">
+                    Состав: нори, курица, сливочный сыр, помидор, фирменный соус
+                    «КимЧи», соус «Унаги», зелёный лук.
+
+                    <p class="BGU">КБЖУ: 242.54 / 15.63 / 18.76 / 2.82</p>
+                    <p class="cost__with__weight">300 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="45">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/zapech/zapechensygrem.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Запеченный с угрем</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, копчёный угорь, огурец,
+                    фирменный соус «Спайси», соус «Унаги».
+
+                    <p class="BGU">КБЖУ: 565.28 / 13.7 / 38.52 / 39.98</p>
+                    <p class="cost__with__weight">320 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="46">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/zapech/zapechenslosos.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Запеченный с лососем</div>
+                  <div class="desc__text">
+                    Состав: нори, сливочный сыр, лосось, огурец, фирменный соус
+                    «Спайси»
+                    <p class="BGU">КБЖУ: 521.93 / 17.39 / 30.76 / 41.79</p>
+                    <p class="cost__with__weight">280 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__list" id="cat4">
+      <div class="container">
+        <div class="categorys">
+          <div class="cat__name">
+            <p class="bold__catname">Торо-доги</p>
+            <hr class="category__hr" />
+          </div>
+          <div class="cat1__flex">
+            <div class="cat1__product" data-product-id="47">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/torodogs/torodoglava.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Торо-Дог "Лава"</div>
+                  <div class="desc__text">
+                    Состав: рис, тигровые креветки, сливочный сыр, огурец, соус
+                    "Лава"<br />
+
+                    <p class="cost__with__weight">300 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="48">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/torodogs/torodogcezar.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Торо-Дог "Цезарь"</div>
+                  <div class="desc__text">
+                    Состав: рис, сливочный сыр, курица, помидор, зеленый лук,
+                    фирменный соус "Цезарь", соус "Унаги"
+                    <p class="cost__with__weight">300 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="49">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/torodogs/torodogcezar.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Торо-Дог "Лосось"</div>
+                  <div class="desc__text">
+                    Состав: рис, лосось, соус "Спайси", авокадо, сливочный сыр,
+                    соус "Унаги".
+                    <p class="cost__with__weight">300 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__list" id="cat6">
+      <div class="container">
+        <div class="categorys">
+          <div class="cat__name">
+            <p class="bold__catname">Супы</p>
+            <hr class="category__hr" />
+          </div>
+          <div class="cat1__flex">
+            <div class="cat1__product" data-product-id="56">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/soups/tomyam.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Том-Ям с курицей</div>
+                  <div class="desc__text">
+                    Состав:Фирменный бульон, рис, курица-гриль, грибы, томаты
+                    черри, нори, лайм, лемонграсс , кокосовое молоко
+                    <p class="cost__with__weight">430 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="57">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/soups/tomyamsmoreproduct.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Том-Ям с морепродуктами</div>
+                  <div class="desc__text">
+                    Состав: фирменный бульон, рис, креветки «Тигровые», мидии,
+                    лосось, грибы, черри, нори, лайм, лемонграсс , кокосовое
+                    молоко<br />
+
+                    <p class="cost__with__weight">530 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__list" id="cat7">
+      <div class="container">
+        <div class="categorys">
+          <div class="cat__name">
+            <p class="bold__catname">Мидии</p>
+            <hr class="category__hr" />
+          </div>
+          <div class="cat1__flex">
+            <div class="cat1__product" data-product-id="58">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/midii/midii__spice.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Мидии «Спайси» 3 ШТ</div>
+                  <div class="desc__text">
+                    Состав:Мидии, фирменный соус «Спайси», кунжут, лайм, соус
+                    «Унаги», рис<br />
+
+                    <p class="cost__with__weight">310 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="59">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/midii/midii__spice.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Мидии «Спайси» 5 ШТ</div>
+                  <div class="desc__text">
+                    Состав:Мидии, фирменный соус «Спайси», кунжут, лайм, соус
+                    «Унаги», рис<br />
+
+                    <p class="cost__with__weight">430 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="60">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/midii/tartaletki__spicy.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Тарталетки «Спайси»</div>
+                  <div class="desc__text">
+                    Состав:Мидии, соус «Спайси», кунжут, лайм, соус «Унаги»,
+                    тарталетки.
+                    <p class="BGU">КБЖУ: 825.25 / 17.65 / 70.48 / 33.22</p>
+                    <p class="cost__with__weight">310 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="61">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/midii/midiislivoch3.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Мидии "Сливочные" - 5 шт.</div>
+                  <div class="desc__text">
+                    Мидии, соус «Сливочный», кунжут, лайм, соус «Унаги», рис
+
+                    <p class="cost__with__weight">450 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="62">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/midii/midiislivoch.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Мидии "Сливочные" - 5 шт.</div>
+                  <div class="desc__text">
+                    Мидии, соус «Сливочный», кунжут, лайм, соус «Унаги», рис
+
+                    <p class="cost__with__weight">450 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="63">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/midii/tartaletkislivoch.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Тарталетки "Сливочные"</div>
+                  <div class="desc__text">
+                    Состав: мидии, соус «Сливочный», кунжут, лайм, соус «Унаги»,
+                    тарталетки. КБЖУ: 748.25 / 21.87 / 59.94 / 35.54 О продавце
+                    <p class="BGU">КБЖУ: 748.25 / 21.87 / 59.94 / 35.54</p>
+                    <p class="cost__with__weight">450 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__list" id="cat8">
+      <div class="container">
+        <div class="categorys">
+          <div class="cat__name">
+            <p class="bold__catname">Сеты</p>
+            <hr class="category__hr" />
+          </div>
+          <div class="cat1__flex">
+            <div class="cat1__product" data-product-id="64">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="./img/sets/lava.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Сет "ЛаваЛава"</div>
+                  <div class="desc__text">
+                    Состав: лава с тигровой креветкой, лава с лососем, лава с
+                    крабом, лава темпура с лососем. <br />
+
+                    <p class="cost__with__weight">1100 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="65">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="./img/sets/taketwo.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Сет "На двоих"</div>
+                  <div class="desc__text">
+                    Состав: Филадельфия, маки лосось, запеченный с креветкой,
+                    мидии "Сливочные" 3 шт.
+                    <br />
+
+                    <p class="cost__with__weight">1200 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="66">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/sets/zastolie.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Сет "Застолье"</div>
+                  <div class="desc__text">
+                    Состав: Волна, Кунсэй, Лотос, Гейша, запеченный с креветкой,
+                    запеченный с лососем, тарталетки "Сливочные", тарталетки
+                    "Спайси".<br />
+
+                    <p class="cost__with__weight">2200 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="67">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/sets/simple__with__taste.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Сет "Просто и со Вкусом"</div>
+                  <div class="desc__text">
+                    Роллы: Запеченный с курицей, запеченный с лососем, гейша,
+                    лотос. <br />
+
+                    <p class="cost__with__weight">950 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="68">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/sets/zapechenuy.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Сет "Запеченный"</div>
+                  <div class="desc__text">
+                    Роллы: запеченный с курицей, запеченный с креветкой,
+                    запеченный с мидией, запеченный с лососем.<br />
+
+                    <p class="cost__with__weight">1050 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="69">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/sets/premium.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">сет "Премиум"</div>
+                  <div class="desc__text">
+                    Роллы: Волна, Филадельфия, Дракон, Калифорния.
+
+                    <br />
+
+                    <p class="cost__with__weight">1400 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__list" id="cat9">
+      <div class="container">
+        <div class="categorys">
+          <div class="cat__name">
+            <p class="bold__catname">Напитки</p>
+            <hr class="category__hr" />
+          </div>
+          <div class="cat1__flex">
+            <div class="cat1__product" data-product-id="70">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/napitki/frus__orange.jfif"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Frustyle Апельсин</div>
+                  <div class="desc__text">
+                    <br />
+
+                    <p class="cost__with__weight">100 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="71">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/napitki/frus_lime.jfif"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Frustyle Лимон-Лайм</div>
+                  <div class="desc__text">
+                    <br />
+
+                    <p class="cost__with__weight">100 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="72">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/napitki/liptom_lemon.jfif"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Липтон чёрный</div>
+                  <div class="desc__text">
+                    <br />
+
+                    <p class="cost__with__weight">100 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="73">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/napitki/lipton_green.jfif"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Липтон зеленый</div>
+                  <div class="desc__text">
+                    <br />
+                    <p class="cost__with__weight">100 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="cat1__product" data-product-id="74">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/napitki/lub_zemlznika.jfif"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Сок Любимый Земляника 0.3</div>
+                  <div class="desc__text">
+                    <br />
+
+                    <p class="cost__with__weight">100 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="75">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/napitki/lub_apple.jfif"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Сок Любимый Яблоко 0.3</div>
+                  <div class="desc__text">
+                    <br />
+
+                    <p class="cost__with__weight">100 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="76">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/napitki/lub_cherry.jfif"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Сок Любимый Вишневая черешня 0.3</div>
+                  <div class="desc__text">
+                    <br />
+
+                    <p class="cost__with__weight">100 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section__list" id="cat10">
+      <div class="container">
+        <div class="categorys">
+          <div class="cat__name">
+            <p class="bold__catname">Добавки</p>
+            <hr class="category__hr" />
+          </div>
+          <div class="cat1__flex">
+            <div class="cat1__product" data-product-id="77">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/dops/imbir.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Имбирь</div>
+                  <div class="desc__text">
+                    имбирь красный <br />
+
+                    <p class="cost__with__weight">25 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="78">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/dops/soevuy.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Соус соевый 100 мл.</div>
+                  <div class="desc__text">
+                    Соевый соус <br />
+
+                    <p class="cost__with__weight">50 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cat1__product" data-product-id="79">
+              <div class="cat__flex">
+                <div class="product__presentaition">
+                  <img
+                    src="img/dops/vasabi.jpg"
+                    alt="testimg"
+                    class="product__image"
+                  />
+                  <div class="ads">
+                    <button class="minus">-</button>
+                    <p class="itog">1</p>
+                    <button class="plus">+</button>
+                  </div>
+                  <button class="add__to__cart">В корзину</button>
+                </div>
+                <div class="product__desc">
+                  <div class="desc__name">Васаби</div>
+                  <div class="desc__text">
+                    Васаби
+
+                    <br />
+
+                    <p class="cost__with__weight">25 ₽</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__info">
+          <div class="footerlogo">
+            <img src="img/logo.png" alt="logo" srcset="" class="logo3" />
+          </div>
+          <div class="footer__bar">
+            <div class="footer__flex">
+              <div class="footer__delivery footer__nav">
+                <h1>Режим доставки</h1>
+                Пн-Чт,Вс 14:00-23:00
+                <br />
+                Пт-Сб 14:00-00:00
+              </div>
+              <div class="contacts__footer footer__nav">
+                <h1>Мы в соцсетях</h1>
+                <div class="vkflex">
+                  <img class="vk" src="img/vk.png" alt="" />
+                  <a href="https://vk.com/torotoroseversk">Наша группа в вк</a>
+                </div>
+              </div>
+              <div class="location footer__nav">
+                <h1>Наши контакты</h1>
+                <a href="tel:+79095427774">+79095427774</a><br />
+                <div style="display: flex">
+                  <img
+                    class="geolock footergeo"
+                    src="img/geo.png"
+                    alt="geo"
+                    srcset=""
+                  />
+                  г.Северск ул.Коммунистический 49б
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="copyright">
+            ToroToro © 2024
+            Все права защищены
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <section class="popup popup__disable">
+      <div class="container">
+        <div class="div__warning__midii">
+          <div class="warning__uppercase">Внимание!</div>
+          <div class="warning__desc">
+            Наши продукты содержат мидии,возможна алергическая реакция!
+          </div>
+          <button class="understand">Понял</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="warning popup__time">
+      <div class="container">
+        <div class="div__warning">
+          <div class="warning__uppercase">Внимание!</div>
+          <div class="warning__desc">
+            Дорогой гость! В настоящее время наша служба доставки не работает.
+            Ваш заказ будет принят в обработку в 11 утра. Спасибо что выбираете
+            Toro-toro!
+          </div>
+          <button class="ok">Понял</button>
+        </div>
+      </div>
+    </section>
+    <script src="search.js"></script>
+    <script src="cart.js"></script>
+    <script src="navpanel.js"></script>
+    <script src="addtocart.js"></script>
+    <script src="understand.js"></script>
+    <script src="slider.js"></script>
+    <script src="menu.js"></script>
+  </body>
+</html>
