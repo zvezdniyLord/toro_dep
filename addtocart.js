@@ -7,10 +7,23 @@ const data = new FormData(document.querySelector("form"));
 const inputPrice = document.querySelector(".input-price");
 const inputName = document.querySelector(".input-name");
 const inputOrder = document.querySelector(".input-order");
+const inputAddress = document.querySelector('.input-address');
 const shoppingBlock = document.querySelector('.shopping_cart');
 const closeShopping = document.querySelector(".close-btn");
 var summory = document.querySelector('.summory')
-var summo = document.querySelector('.summo')
+var summo = document.querySelector('.summo');
+
+
+function toggleCheckbox(otherCheckboxId, currentCheckbox) {
+  const otherCheckbox = document.getElementById(otherCheckboxId);
+  if (currentCheckbox.checked) {
+    otherCheckbox.disabled = true;
+    inputAddress.setAttribute('required', 'true');
+  } else {
+    inputAddress.setAttribute('required', false);
+    otherCheckbox.disabled = false;
+  }
+}
 
 elementGetNone(closeShopping, shoppingBlock);
 
