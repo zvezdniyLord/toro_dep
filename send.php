@@ -6,7 +6,7 @@ $chat_id = "-4288535116";
 
 /*$token = "7405933413:AAHRb-M7T282WvILRR8pkUCzacyxiauaahQ";
 
-$chat_id = "-4273521241";*
+$chat_id = "-4273521241";*/
 
 if ($_POST['act'] == 'order') {
     $name = ($_POST['name']);

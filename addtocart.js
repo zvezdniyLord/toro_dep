@@ -318,7 +318,7 @@ function applyPromoCode(promoCode) {
   } else {
   }
 }
-document.querySelector('.btn-order').addEventListener("subm", () => {
+document.querySelector('.btn-order').addEventListener("submit", () => {
   sendCartItems();
 })
 function searchProducts() {
