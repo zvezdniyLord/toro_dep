@@ -236,6 +236,39 @@ function sendCartItems() {
   console.log(cartData);
 }
 
+function sendDataToTelegram(formData) {
+  const botToken = "7877529594:AAHxhqHMfoIiMqFpd1ltTSSALRjt9yrMIo4";
+  const chatID = '170195649';
+  const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+  console.log(formData);
+  const message = `
+      НОВЫЙ ЗАКАЗ:
+      <b>Имя:</b> ${formData.product}
+      <b>Фамилия:</b> ${formData.name}
+      <b>Дата рождения:</b> ${formData.tel}
+      <b>Пол:</b> ${formData.home}
+      <b>Хобби:</b> ${formData.count_pers}
+      <b>Примечание:</b> ${formData.promokod}`;
+  const params = {
+    chat_id: chatId, // ID чата
+        text: message, // Текст сообщения
+        parse_mode: 'HTML' // Режим парсинга HTML
+    };
+
+    return fetch(apiUrl, {
+      method: 'POST', // Метод отправки
+      headers: {
+          'Content-Type': 'application/json', // Указываем тип содержимого
+      },
+      body: JSON.stringify(params) // Преобразуем параметры в JSON
+  }).then(response => response.json()); // Возвращаем ответ в формате JSON
+
+}
+
+
+
+
+
 function orderAdd(productId, productName, productPrice, productQuantity) {
   orderArr.push({
     id: productId,
@@ -318,9 +351,29 @@ function applyPromoCode(promoCode) {
   } else {
   }
 }
-document.querySelector('.btn-order').addEventListener("submit", () => {
+
+/*document.querySelector('.btn-order').addEventListener("submit", () => {
   sendCartItems();
-})
+})*/
+
+document.querySelector('form').addEventListener('submit', (e) => {
+  e.preventDefault(); // Отменяем стандартное поведение формы
+
+      sendDataToTelegram(data)
+          .then(result => {
+              if (result.ok) {
+                  // Если данные успешно отправлены
+                  console.log('result ok')
+              } else {
+                  // Если произошла ошибка при отправке
+                  console.log('result ne ok')
+              }
+          })
+          .catch(error => {
+              console.error('Error:', error);
+          })
+});
+
 function searchProducts() {
   const input = document.getElementById("searchInput").value.toLowerCase();
   const resultsContainer = document.getElementById("searchResultsContainer");

@@ -110,9 +110,10 @@
             <div class="cart__container" id="cartContainer">
               <div class="shopping_cart">
                 <div class="close-btn">X</div>
-                <form class="form" method="post" action="./send.php" id="zakaz">
+                <form class="form" id="zakaz">
                   <div class="form__left">
                     <div class="inputs__left">
+                      <input class="input-data" type="hidden" name="product">
                       <input
                         required
                         name="name"
@@ -202,7 +203,7 @@
                     />
                   </div>
 
-                  <button type="button" class="btn-order">Заказать</button>
+                  <button type="submit" class="btn-order">Заказать</button>
                   <p class="dostavka">
                     Минимальная сумма заказа на бесплатную доставку 800р
                   </p>
@@ -245,7 +246,6 @@
                   </button>
                   <button
                     id="submitCartButton"
-                    type="submit"
                     class="get__offer"
                   >
                     Оформить заказ
